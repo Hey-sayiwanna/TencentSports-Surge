@@ -1,5 +1,5 @@
 #!name=腾讯体育去广告
-#!desc=拦截腾讯体育开屏广告，并移除首页信息流中的强插广告和广告候选包
+#!desc=拦截腾讯体育开屏广告，并移除首页信息流强插广告
 
 [MITM]
 hostname = %APPEND%,app.sports.qq.com,config.ab.qq.com
