@@ -3,13 +3,12 @@
 
 [MITM]
 hostname = %APPEND%,app.sports.qq.com,config.ab.qq.com,shequ.sports.qq.com
-auto-quic-block = true
 
 [Map Local]
 ^https:\/\/config\.ab\.qq\.com\/tab\/GetTabRemoteConfig.* data-type=text data="" status-code=200 header="Content-Type:application/proto"
 ^https:\/\/config\.ab\.qq\.com\/tab\/GetTabToggle.* data-type=text data="" status-code=200 header="Content-Type:application/proto"
 
 [Script]
-QQSportsFeedAdBlock = type=http-response,pattern=^https:\/\/app\.sports\.qq\.com\/feeds\/list\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsFeedAdBlock.js,script-update-interval=21600,timeout=10
+QQSportsFeedAdBlock = type=http-response,pattern=^https:\/\/app\.sports\.qq\.com\/feeds\/list\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsFeedAdBlock.js,timeout=10
 
-QQSportsArticleAdBlock = type=http-response,pattern=^https:\/\/shequ\.sports\.qq\.com\/topic\/detail\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsArticleAdBlock.js,script-update-interval=21600,timeout=10
+QQSportsArticleAdBlock = type=http-response,pattern=^https:\/\/shequ\.sports\.qq\.com\/topic\/detail\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsArticleAdBlock.js,timeout=10
