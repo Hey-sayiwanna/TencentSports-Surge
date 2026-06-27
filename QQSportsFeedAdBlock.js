@@ -49,7 +49,6 @@ try {
     });
   }
 
-  // 清空当前 Feed 响应附带的广告候选包
   if (data && Object.prototype.hasOwnProperty.call(data, "adList")) {
     data.adList = "";
   }
