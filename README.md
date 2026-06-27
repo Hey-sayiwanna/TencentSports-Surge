@@ -1,2 +1,3 @@
 # TencentSports-Surge
 专门针对腾讯体育app的去广告模块插件，可以去除开屏广告以及滑动浏览时的信息流卡片广告，surge模块需要具备mitm功能并开启屏蔽QUIC
+软件需要重装一下
