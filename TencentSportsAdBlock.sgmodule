@@ -10,4 +10,4 @@ auto-quic-block = true
 ^https:\/\/config\.ab\.qq\.com\/tab\/GetTabToggle.* data-type=text data="" status-code=200 header="Content-Type:application/proto"
 
 [Script]
-QQSportsFeedAdBlock = type=http-response,pattern=^https:\/\/app\.sports\.qq\.com\/feeds\/list\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwan/TencentSports-Surge/main/QQSportsFeedAdBlock.js,timeout=10
+QQSportsFeedAdBlock = type=http-response,pattern=^https:\/\/app\.sports\.qq\.com\/feeds\/list\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsFeedAdBlock.js,timeout=10
