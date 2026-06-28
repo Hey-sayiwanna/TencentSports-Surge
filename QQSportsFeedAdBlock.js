@@ -98,7 +98,14 @@ try {
   if (data && Object.prototype.hasOwnProperty.call(data, "topWidget")) {
     data.topWidget = {};
   }
-
+/*
+ * 直播间飘入广告 / 右下角广告挂件
+ * 来源：match/adBanner
+ */
+if (data && Array.isArray(data.enterAdList)) {
+  removedCount += data.enterAdList.length;
+  data.enterAdList = [];
+}
   console.log(
     `QQSports Ad Block: removed ${removedCount} ad module(s).`
   );
