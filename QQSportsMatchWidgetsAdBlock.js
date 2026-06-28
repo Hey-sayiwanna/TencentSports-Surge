@@ -13,26 +13,6 @@ try {
     removedCount += data.bannerList.length;
     data.bannerList = [];
   }
-
-  /*
-   * 直播间进入广告 / 飘窗广告
-   * 字段里会带 logo: "广告"、lottieUrl、picUrl
-   */
-  if (data && Array.isArray(data.enterAdList)) {
-    removedCount += data.enterAdList.length;
-    data.enterAdList = [];
-  }
-/*
- * 直播聊天区广告背景
- * 例如右侧的 Monster 饮料罐广告
- */
-if (
-  data &&
-  Object.prototype.hasOwnProperty.call(data, "chatBackground")
-) {
-  data.chatBackground = {};
-  removedCount += 1;
-}
   console.log(
     `QQSports Match Widgets Ad Block: removed ${removedCount} ad item(s).`
   );
