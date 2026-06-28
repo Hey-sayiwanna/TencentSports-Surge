@@ -22,7 +22,18 @@ try {
     removedCount += data.enterAdList.length;
     data.enterAdList = [];
   }
-
+/*
+ * 直播聊天区广告背景
+ * 例如右侧的 Monster 饮料罐广告
+ */
+if (
+  data &&
+  data.chatBackground &&
+  Object.prototype.hasOwnProperty.call(data.chatBackground, "adImgNew")
+) {
+  data.chatBackground.adImgNew = "";
+  removedCount += 1;
+}
   console.log(
     `QQSports Match Widgets Ad Block: removed ${removedCount} ad item(s).`
   );
