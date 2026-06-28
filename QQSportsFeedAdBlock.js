@@ -106,19 +106,6 @@ if (data && Array.isArray(data.enterAdList)) {
   removedCount += data.enterAdList.length;
   data.enterAdList = [];
 }
-
-/*
- * 直播聊天区广告背景
- * 例如右侧的 Monster 饮料罐广告
- */
-if (
-  data &&
-  Object.prototype.hasOwnProperty.call(data, "chatBackground")
-) {
-  data.chatBackground = {};
-  removedCount += 1;
-}
-
 console.log(
   `QQSports Ad Block: removed ${removedCount} ad module(s).`
 );
