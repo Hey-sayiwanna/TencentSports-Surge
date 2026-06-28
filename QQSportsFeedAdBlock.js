@@ -101,3 +101,10 @@ try {
 console.log(
   `QQSports Ad Block: removed ${removedCount} ad module(s).`
 );
+  $done({
+    body: JSON.stringify(body)
+  });
+} catch (error) {
+  console.log(`QQSports Ad Block error: ${error}`);
+  $done({});
+}
