@@ -1,3 +1,82 @@
 # TencentSports-Surge
-专门针对腾讯体育app的去广告模块插件，可以去除开屏广告以及滑动浏览时的信息流卡片广告，surge模块需要具备mitm功能并开启屏蔽QUIC
-软件需要重装一下
+
+腾讯体育 iPhone / iPad App 的 Surge 去广告模块。模块通过 MITM、Map Local 和 HTTP Response 脚本处理腾讯体育的广告配置与广告组件，主要用于去除开屏广告、首页信息流强插广告、社区文章底部广告、赛事页横幅/组件广告和体育会员弹窗等内容。
+
+> [!IMPORTANT]
+> 本项目只在 **iPhone / iPad 端腾讯体育 App + Surge** 环境下测试。Android、macOS 客户端，以及 Quantumult X、Loon、Shadowrocket、Stash 等其他代理工具均未测试，也没有提供适配配置。
+
+> [!NOTE]
+> 首次启用模块或更新规则后，建议强退腾讯体育再重新打开。如果开屏广告或广告卡片来自 App 本地缓存，可能需要卸载重装腾讯体育后再验证。
+
+## 功能
+
+- 拦截腾讯体育开屏相关广告配置
+- 移除首页/浏览页信息流中的强插广告卡片
+- 清理社区文章详情底部广告字段
+- 清理赛事页横幅、赛后数据页广告和运营组件
+- 移除体育会员频道弹窗模块
+- 尽量通过改写响应体清理广告字段，避免直接拒绝整域名导致空白框或功能异常
+
+## 安装
+
+在 Surge 中通过模块链接安装：
+
+```text
+https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/TencentSportsAdBlock.sgmodule
+```
+
+安装后确认以下设置：
+
+1. 已安装并信任 Surge MITM 证书。
+2. 已对腾讯体育相关域名开启 HTTPS 解密。
+3. 已启用本模块。
+4. 已开启或允许模块自动屏蔽 QUIC。
+5. 强退腾讯体育后重新打开测试。
+
+## 适用范围
+
+| 项目 | 状态 |
+| --- | --- |
+| 腾讯体育 iPhone App | 已测试 |
+| 腾讯体育 iPad App | 已测试 |
+| Surge for iOS / iPadOS | 已测试 |
+| Android 版腾讯体育 | 未测试 |
+| macOS 客户端 | 未测试 |
+| Quantumult X / Loon / Shadowrocket / Stash | 未适配，未测试 |
+
+## 文件说明
+
+| 文件 | 作用 |
+| --- | --- |
+| `TencentSportsAdBlock.sgmodule` | Surge 模块入口，包含 MITM、Map Local 和脚本规则 |
+| `QQSportsFeedAdBlock.js` | 处理首页信息流、赛事广告横幅和部分强插广告卡片 |
+| `QQSportsArticleAdBlock.js` | 处理社区文章详情页底部广告字段 |
+| `QQSportsMatchWidgetsAdBlock.js` | 处理赛事页组件中的横幅广告 |
+| `QQSportsColumnWidgetBlock.js` | 处理栏目/专题相关运营悬浮组件 |
+| `QQSportsVipPopupBlock.js` | 处理体育会员频道弹窗模块 |
+
+## 工作原理
+
+模块主要处理以下类型的请求：
+
+- `config.ab.qq.com`：通过 Map Local 返回空配置，减少开屏和远程广告开关下发。
+- `app.sports.qq.com`：通过脚本过滤首页信息流、赛事页、赛后数据页中的广告字段。
+- `shequ.sports.qq.com`：清理社区文章详情里的广告列表字段。
+- `film.video.qq.com`：移除体育会员频道内的弹窗模块。
+
+脚本会优先保留正常业务响应，只删除或置空广告字段，例如 `adList`、`adListPB`、`bannerList`、强插信息流卡片和弹窗模块等。
+
+## 调试
+
+如果广告仍然出现，可以按下面顺序排查：
+
+1. 在 Surge 最近请求中确认相关请求是否命中本模块脚本。
+2. 确认请求详情里 HTTPS 解密正常，不是 CONNECT、QUIC 或未解密状态。
+3. 确认模块是最新版本，并重新加载一次模块。
+4. 强退腾讯体育后重新打开。
+5. 如果广告内容已经被清掉但仍有旧广告位，优先考虑 App 缓存，卸载重装后再测试。
+6. 如果最近请求里出现新的广告接口，需要重新抓包补规则。
+
+## 说明
+
+本项目只针对腾讯体育 App 内广告与运营组件做个人环境下的规则整理。腾讯体育接口可能随版本变化而调整，如果规则失效，需要根据新的 Surge 最近请求和抓包结果继续补充。
