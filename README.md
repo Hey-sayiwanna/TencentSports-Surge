@@ -40,7 +40,6 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 | 腾讯体育 iPad App | 已测试 |
 | Surge for iOS / iPadOS | 已测试 |
 | Android 版腾讯体育 | 未测试 |
-| macOS 客户端 | 未测试 |
 | Quantumult X / Loon / Shadowrocket / Stash | 未适配，未测试 |
 
 ## 文件说明
