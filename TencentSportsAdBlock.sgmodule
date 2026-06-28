@@ -2,8 +2,7 @@
 #!desc=拦截开屏广告，移除首页信息流强插广告与社区文章底部广告
 
 [MITM]
-hostname = %APPEND%,app.sports.qq.com,config.ab.qq.com,shequ.sports.qq.com
-
+hostname = %APPEND%,app.sports.qq.com,config.ab.qq.com,shequ.sports.qq.com,film.video.qq.com
 [Map Local]
 ^https:\/\/config\.ab\.qq\.com\/tab\/GetTabRemoteConfig.* data-type=text data="" status-code=200 header="Content-Type:application/proto"
 ^https:\/\/config\.ab\.qq\.com\/tab\/GetTabToggle.* data-type=text data="" status-code=200 header="Content-Type:application/proto"
