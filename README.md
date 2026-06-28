@@ -53,16 +53,6 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 | `QQSportsColumnWidgetBlock.js` | 处理栏目/专题相关运营悬浮组件 |
 | `QQSportsVipPopupBlock.js` | 处理体育会员频道弹窗模块 |
 
-## 工作原理
-
-模块主要处理以下类型的请求：
-
-- `config.ab.qq.com`：通过 Map Local 返回空配置，减少开屏和远程广告开关下发。
-- `app.sports.qq.com`：通过脚本过滤首页信息流、赛事页、赛后数据页中的广告字段。
-- `shequ.sports.qq.com`：清理社区文章详情里的广告列表字段。
-- `film.video.qq.com`：移除体育会员频道内的弹窗模块。
-
-脚本会优先保留正常业务响应，只删除或置空广告字段，例如 `adList`、`adListPB`、`bannerList`、强插信息流卡片和弹窗模块等。
 
 ## 调试
 
