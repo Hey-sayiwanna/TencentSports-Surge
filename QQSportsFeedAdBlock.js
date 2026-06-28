@@ -113,10 +113,9 @@ if (data && Array.isArray(data.enterAdList)) {
  */
 if (
   data &&
-  data.chatBackground &&
-  Object.prototype.hasOwnProperty.call(data.chatBackground, "adImgNew")
+  Object.prototype.hasOwnProperty.call(data, "chatBackground")
 ) {
-  data.chatBackground.adImgNew = "";
+  data.chatBackground = {};
   removedCount += 1;
 }
 
