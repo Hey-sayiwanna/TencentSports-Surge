@@ -11,3 +11,4 @@ hostname = %APPEND%,app.sports.qq.com,config.ab.qq.com,shequ.sports.qq.com
 [Script]
 QQSportsFeedAdBlock = type=http-response,pattern=^https:\/\/app\.sports\.qq\.com\/(?:feeds\/list|m\/matchAfter\/stats|match\/adBanner)\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsFeedAdBlock.js,script-update-interval=21600,timeout=10
 QQSportsArticleAdBlock = type=http-response,pattern=^https:\/\/shequ\.sports\.qq\.com\/topic\/detail\?,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsArticleAdBlock.js,timeout=10
+QQSportsMatchWidgetsAdBlock = type=http-response,pattern=^https:\/\/app\.sports\.qq\.com\/trpc\.sports_resource\.cgi\.ResourceCGI\/MatchWidgets(?:\?.*)?$,requires-body=1,script-path=https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/QQSportsMatchWidgetsAdBlock.js,script-update-interval=21600,timeout=10
