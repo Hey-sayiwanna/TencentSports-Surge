@@ -6,7 +6,7 @@
 > 本项目只在 **iPhone / iPad 端腾讯体育 App + Surge** 环境下测试。Android、macOS 客户端，以及 Quantumult X、Loon、Shadowrocket、Stash 等其他代理工具均未测试，也没有提供适配配置。
 
 > [!NOTE]
-> 首次启用模块或更新规则后，需要卸载重装腾讯体育已清除app本地缓存。
+> 首次启用模块或更新规则后，需要卸载重装腾讯体育已清除app本地缓存。并安装信任 Surge MITM 证书、开启 HTTPS 解密并屏蔽 QUIC
 
 ## 引用基础模块
 
@@ -36,15 +36,6 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 ```
 
 本模块用于去除腾讯体育开屏广告、视频前置广告、首页信息流广告、文章底部广告、专题/赛事组件广告等。
-
-安装后确认以下设置：
-
-1. 已安装并信任 Surge MITM 证书。
-2. 已对腾讯体育相关域名开启 HTTPS 解密。
-3. 已启用本模块。
-4. 已开启或允许模块自动屏蔽 QUIC。
-5. 强退腾讯体育后重新打开测试。
-
 
 ## 功能
 
