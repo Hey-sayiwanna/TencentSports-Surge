@@ -8,9 +8,9 @@
 > [!NOTE]
 > 首次启用模块或更新规则后，需要卸载重装腾讯体育已清除app本地缓存。并安装信任 Surge MITM 证书、开启 HTTPS 解密并开启屏蔽 QUIC
 
-## 引用基础模块
+## 一、基础模块引用
 
-> [!IMPORTANT]
+> [!CAUTION]
 > 以下两个基础模块引用自 @QingRex 的 [LoonKissSurge](https://github.com/QingRex/LoonKissSurge) / [surge.qingr.moe](https://surge.qingr.moe/) 项目，不属于本仓库原创内容。建议先安装并在 Surge 模块列表中保持优先生效，可以去除视频播放前60秒广告
 
 广告平台拦截器.beta.sgmodule：
@@ -25,7 +25,7 @@ HTTPDNS拦截器.beta.sgmodule：
 https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Beta/HTTPDNS%E6%8B%A6%E6%88%AA%E5%99%A8.beta.sgmodule
 ```
 
-## 安装
+## 二、安装
 
 一键安装页面（包含两个基础模块和本模块）：https://hey-sayiwanna.github.io/TencentSports-Surge/
 
@@ -37,7 +37,7 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 本模块用于去除腾讯体育开屏广告、视频前置广告、首页信息流广告、文章底部广告、专题/赛事组件广告等。
 
-## 功能
+## 三、主要功能
 
 - 拦截腾讯体育开屏相关广告配置
 - 去除腾讯体育视频前置广告
@@ -47,7 +47,7 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 - 移除体育会员频道弹窗模块
 - 尽量通过改写响应体清理广告字段，避免直接拒绝整域名导致空白框或功能异常
 
-## 适用范围
+## 四、适用范围
 
 | 软件 | 两个前置模块 | 本项目模块 |
 | --- | --- | --- |
@@ -69,19 +69,19 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 
 
-## 文件说明
+## 五、相关文件说明
 
 | 文件 | 作用 |
 | --- | --- |
-| `TencentSportsAdBlock.sgmodule` | Surge 模块入口文件，统一声明 MITM、Map Local、脚本挂载和相关规则，是安装本项目时优先使用的主入口。 |
-| `TencentSportsAdBlock.js` | 本项目核心去广告脚本之一，负责处理腾讯体育主要广告响应，清理开屏、视频前置、信息流、文章、赛事组件等广告字段。 |
-| `TencentSportsFloatBlock.js` | 本项目去广告脚本之一，负责处理浮层、弹窗、悬浮运营位等页面组件，配合主脚本完成腾讯体育 App 内广告清理。 |
+| `TencentSportsAdBlock.sgmodule` | Surge 模块文件，安装本项目时的使用入口。 |
+| `TencentSportsAdBlock.js` | 本项目核心去广告脚本，负责处理腾讯体育主要广告响应：清理开屏、视频前置、信息流、文章、赛事组件等广告字段。 |
+| `TencentSportsFloatBlock.js` | 本项目辅助去广告脚本，负责处理浮层、弹窗、悬浮运营位等页面组件 |
 | `TencentSportsAdBlock.conf` | 圈x适配测试文件 |
 | `去广告原理代码参考` | 腾讯体育首页信息流、浏览页、赛事横幅等广告接口与字段处理参考，保留给其他平台去广告爱好者按需取用、改写和二次开发。 |
 | `index.html` | GitHub Pages 一键安装页面，提供两个基础模块和本项目 Surge 模块的快捷导入入口。 |
 
 
-## 调试
+## 六、相关调试
 
 如果广告仍然出现，可以按下面顺序排查：
 
