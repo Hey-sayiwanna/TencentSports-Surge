@@ -44,9 +44,7 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 3. 已启用本模块。
 4. 已开启或允许模块自动屏蔽 QUIC。
 5. 强退腾讯体育后重新打开测试。
-<img width="1206" height="2281" alt="IMG_0225" src="https://github.com/user-attachments/assets/55680633-0cb7-432e-bde6-57455f6b2684" />
-<img width="1205" height="2260" alt="IMG_0226" src="https://github.com/user-attachments/assets/0537ce27-31c0-42f4-ae05-2cfef13851f9" />
-<img width="1206" height="1973" alt="IMG_0227" src="https://github.com/user-attachments/assets/84fefdfa-0b9f-422b-99be-c5c6c5864c67" />
+
 
 ## 功能
 
