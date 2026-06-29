@@ -12,7 +12,7 @@
 ## 一、基础模块引用
 
 > [!CAUTION]
-> 以下两个基础模块引用自 @QingRex 的 [LoonKissSurge](https://github.com/QingRex/LoonKissSurge) / [surge.qingr.moe](https://surge.qingr.moe/) 项目，不属于本仓库原创内容。建议先安装并在 Surge 模块列表中保持优先生效，可以去除视频播放前60秒广告
+> 以下两个基础模块引用自 @QingRex 的 [LoonKissSurge](https://github.com/QingRex/LoonKissSurge) / [surge.qingr.moe](https://surge.qingr.moe/) 项目，不属于本仓库原创内容。建议先安装并在 Surge 模块列表中保持优先生效，以去除视频播放前60秒广告
 
 广告平台拦截器.beta.sgmodule：
 
@@ -28,7 +28,7 @@ https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Be
 
 ## 二、安装
 
-一键安装页面（包含两个基础模块和本模块）：https://hey-sayiwanna.github.io/TencentSports-Surge/
+一键安装页面（包含两个基础模块和Surge模块）：https://hey-sayiwanna.github.io/TencentSports-Surge/
 
 基础模块安装完成后，在 Surge 中通过模块链接安装本模块：
 
