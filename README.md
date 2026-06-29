@@ -70,12 +70,16 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 | 文件 | 作用 |
 | --- | --- |
-| `TencentSportsAdBlock.sgmodule` | Surge 模块入口，包含 MITM、Map Local 和脚本规则 |
-| `QQSportsFeedAdBlock.js` | 处理首页信息流、赛事广告横幅和部分强插广告卡片 |
-| `QQSportsArticleAdBlock.js` | 处理社区文章详情页底部广告字段 |
-| `QQSportsMatchWidgetsAdBlock.js` | 处理赛事页组件中的横幅广告 |
-| `QQSportsColumnWidgetBlock.js` | 处理栏目/专题相关运营悬浮组件 |
-| `QQSportsVipPopupBlock.js` | 处理体育会员频道弹窗模块 |
+| `TencentSportsAdBlock.sgmodule` | Surge 模块入口文件，统一声明 MITM、Map Local、脚本挂载和相关规则，是安装本项目时优先使用的主入口。 |
+| `TencentSportsAdBlock.js` | 本项目核心去广告脚本之一，负责处理腾讯体育主要广告响应，清理开屏、视频前置、信息流、文章、赛事组件等广告字段。 |
+| `TencentSportsFloatBlock.js` | 本项目去广告脚本之一，负责处理浮层、弹窗、悬浮运营位等页面组件，配合主脚本完成腾讯体育 App 内广告清理。 |
+| `TencentSportsAdBlock.conf` | 配置参考文件，用于展示规则组织方式和脚本引用关系，便于手动迁移或二次适配；不代表 README 中未测试平台已完成适配。 |
+| `QQSportsFeedAdBlock.js` | 腾讯体育首页信息流、浏览页、赛事横幅等广告接口与字段处理参考，保留给其他平台去广告爱好者按需取用、改写和二次开发。 |
+| `QQSportsArticleAdBlock.js` | 腾讯体育社区文章详情页底部广告字段处理参考，主要用于说明文章场景广告数据结构和清理思路。 |
+| `QQSportsMatchWidgetsAdBlock.js` | 腾讯体育赛事页组件、赛后数据页广告位等处理参考，便于其他规则维护者定位赛事相关广告链路。 |
+| `QQSportsColumnWidgetBlock.js` | 腾讯体育栏目、专题及运营悬浮组件广告字段处理参考，供其他平台规则移植和扩展时参考。 |
+| `QQSportsVipPopupBlock.js` | 腾讯体育会员弹窗、会员页运营位等广告信息处理参考，供其他平台去广告爱好者自行取用和开发。 |
+| `index.html` | GitHub Pages 一键安装页面，提供两个基础模块和本项目 Surge 模块的快捷导入入口。 |
 
 
 ## 调试
