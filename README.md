@@ -27,6 +27,8 @@ https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Be
 
 ## 安装
 
+一键安装页面（包含两个基础模块和本模块）：https://hey-sayiwanna.github.io/TencentSports-Surge/
+
 基础模块安装完成后，在 Surge 中通过模块链接安装本模块：
 
 ```text
