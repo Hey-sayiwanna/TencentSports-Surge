@@ -1,3 +1,4 @@
+
 # TencentSports-Surge
 
 腾讯体育 iPhone / iPad App 的 Surge 去广告模块。模块通过 MITM、Map Local 和 HTTP Response 脚本处理腾讯体育的广告配置与广告组件，主要用于去除开屏广告、首页信息流强插广告、社区文章底部广告、赛事页横幅/组件广告和体育会员弹窗等内容。
@@ -33,6 +34,12 @@ https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Be
 
 ```text
 https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/TencentSportsAdBlock.sgmodule
+```
+
+Quantumult X / 圈x 测试配置链接：
+
+```text
+https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/TencentSportsAdBlock.conf
 ```
 
 本模块用于去除腾讯体育开屏广告、视频前置广告、首页信息流广告、文章底部广告、专题/赛事组件广告等。
