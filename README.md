@@ -11,7 +11,7 @@
 ## 引用基础模块
 
 > [!IMPORTANT]
-> 以下两个基础模块引用自 @QingRex 的 [LoonKissSurge](https://github.com/QingRex/LoonKissSurge) / [surge.qingr.moe](https://surge.qingr.moe/) 项目，不属于本仓库原创内容。建议先安装并在 Surge 模块列表中保持优先生效。
+> 以下两个基础模块引用自 @QingRex 的 [LoonKissSurge](https://github.com/QingRex/LoonKissSurge) / [surge.qingr.moe](https://surge.qingr.moe/) 项目，不属于本仓库原创内容。建议先安装并在 Surge 模块列表中保持优先生效，可以去除视频播放前60秒广告
 
 广告平台拦截器.beta.sgmodule：
 
@@ -44,7 +44,9 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 3. 已启用本模块。
 4. 已开启或允许模块自动屏蔽 QUIC。
 5. 强退腾讯体育后重新打开测试。
-
+<img width="1206" height="2281" alt="IMG_0225" src="https://github.com/user-attachments/assets/55680633-0cb7-432e-bde6-57455f6b2684" />
+<img width="1205" height="2260" alt="IMG_0226" src="https://github.com/user-attachments/assets/0537ce27-31c0-42f4-ae05-2cfef13851f9" />
+<img width="1206" height="1973" alt="IMG_0227" src="https://github.com/user-attachments/assets/84fefdfa-0b9f-422b-99be-c5c6c5864c67" />
 
 ## 功能
 
