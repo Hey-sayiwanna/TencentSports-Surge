@@ -38,7 +38,7 @@ function removeVipPopup(html) {
   const markerIndex = html.indexOf(marker);
 
   if (markerIndex === -1) {
-    console.log("Aegis: VIP popup not found.");
+    console.log("TencentSportsAdBlock: VIP popup not found.");
     return html;
   }
 
@@ -131,12 +131,12 @@ function removeVipPopup(html) {
         }
       }
 
-      console.log("Aegis: VIP popup removed.");
+      console.log("TencentSportsAdBlock: VIP popup removed.");
       return html.slice(0, removeStart) + html.slice(removeEnd + 1);
     }
   }
 
-  console.log("Aegis: VIP popup range not found.");
+  console.log("TencentSportsAdBlock: VIP popup range not found.");
   return html;
 }
 
@@ -145,96 +145,96 @@ try {
     $done({
       body: removeVipPopup(body)
     });
-  }
+  } else {
+    const obj = JSON.parse(body);
+    const data = obj?.data;
+    let removed = 0;
 
-  const obj = JSON.parse(body);
-  const data = obj?.data;
-  let removed = 0;
+    if (
+      /^https:\/\/app\.sports\.qq\.com\/(?:feeds\/list|m\/matchAfter\/stats|match\/adBanner)\?/.test(
+        url
+      )
+    ) {
+      if (Array.isArray(data?.list)) {
+        data.list = data.list.filter((item) => {
+          if (!isFeedAd(item)) return true;
+          removed += 1;
+          return false;
+        });
+      }
 
-  if (
-    /^https:\/\/app\.sports\.qq\.com\/(?:feeds\/list|m\/matchAfter\/stats|match\/adBanner)\?/.test(
-      url
-    )
-  ) {
-    if (Array.isArray(data?.list)) {
-      data.list = data.list.filter((item) => {
-        if (!isFeedAd(item)) return true;
+      if (data && Object.prototype.hasOwnProperty.call(data, "adList")) {
+        data.adList = "";
+      }
+
+      if (Array.isArray(data?.stats)) {
+        data.stats = data.stats.filter((item) => {
+          const isMatchAd =
+            item &&
+            (
+              item.text === "广告" ||
+              String(item.type) === "41" ||
+              typeof item.ad?.adListPB === "string" ||
+              item.ad?.adListPB
+            );
+
+          if (!isMatchAd) return true;
+
+          removed += 1;
+          return false;
+        });
+      }
+
+      if (data && Object.prototype.hasOwnProperty.call(data, "iconAd")) {
+        data.iconAd = {};
+      }
+
+      if (data && Object.prototype.hasOwnProperty.call(data, "topWidget")) {
+        data.topWidget = {};
+      }
+    } else if (
+      /^https:\/\/shequ\.sports\.qq\.com\/topic\/detail\?/.test(url)
+    ) {
+      if (typeof data?.adListPB === "string" && data.adListPB.length > 0) {
+        data.adListPB = "";
         removed += 1;
-        return false;
-      });
-    }
+      }
 
-    if (data && Object.prototype.hasOwnProperty.call(data, "adList")) {
-      data.adList = "";
-    }
-
-    if (Array.isArray(data?.stats)) {
-      data.stats = data.stats.filter((item) => {
-        const isMatchAd =
-          item &&
-          (
-            item.text === "广告" ||
-            String(item.type) === "41" ||
-            typeof item.ad?.adListPB === "string" ||
-            item.ad?.adListPB
-          );
-
-        if (!isMatchAd) return true;
-
+      if (Array.isArray(data?.adList) && data.adList.length > 0) {
+        data.adList = [];
         removed += 1;
-        return false;
-      });
+      }
+
+      if (Array.isArray(data?.adInfos) && data.adInfos.length > 0) {
+        data.adInfos = [];
+        removed += 1;
+      }
+    } else if (
+      /\/ResourceCGI\/MatchWidgets(?:\?.*)?$/.test(url)
+    ) {
+      if (Array.isArray(data?.bannerList)) {
+        removed = data.bannerList.length;
+        data.bannerList = [];
+      }
+    } else if (
+      /\/ResourceCGI\/ColumnWidget(?:\?.*)?$/.test(url)
+    ) {
+      const title = data?.jumpData?.param?.title || "";
+      const widgetUrl = data?.jumpData?.param?.url || "";
+
+      if (data && (data.img || title || widgetUrl)) {
+        obj.data = null;
+        removed = 1;
+      }
     }
 
-    if (data && Object.prototype.hasOwnProperty.call(data, "iconAd")) {
-      data.iconAd = {};
-    }
+    console.log(`TencentSportsAdBlock: removed ${removed} item(s).`);
 
-    if (data && Object.prototype.hasOwnProperty.call(data, "topWidget")) {
-      data.topWidget = {};
-    }
-  } else if (
-    /^https:\/\/shequ\.sports\.qq\.com\/topic\/detail\?/.test(url)
-  ) {
-    if (typeof data?.adListPB === "string" && data.adListPB.length > 0) {
-      data.adListPB = "";
-      removed += 1;
-    }
-
-    if (Array.isArray(data?.adList) && data.adList.length > 0) {
-      data.adList = [];
-      removed += 1;
-    }
-
-    if (Array.isArray(data?.adInfos) && data.adInfos.length > 0) {
-      data.adInfos = [];
-      removed += 1;
-    }
-  } else if (
-    /\/ResourceCGI\/MatchWidgets(?:\?.*)?$/.test(url)
-  ) {
-    if (Array.isArray(data?.bannerList)) {
-      removed = data.bannerList.length;
-      data.bannerList = [];
-    }
-  } else if (
-    /\/ResourceCGI\/ColumnWidget(?:\?.*)?$/.test(url)
-  ) {
-    const title = data?.jumpData?.param?.title || "";
-    const widgetUrl = data?.jumpData?.param?.url || "";
-
-    if (data && (data.img || title || widgetUrl)) {
-      obj.data = null;
-      removed = 1;
-    }
+    $done({
+      body: JSON.stringify(obj)
+    });
   }
-
-  console.log(`Aegis: removed ${removed} item(s).`);
-
-  $done({
-    body: JSON.stringify(obj)
-  });
 } catch (error) {
-  console.log(`Aegis error: ${error}`);
+  console.log(`TencentSportsAdBlock error: ${error}`);
   $done({});
 }
