@@ -209,23 +209,6 @@ try {
         data.adInfos = [];
         removed += 1;
       }
-    } else if (
-      /\/ResourceCGI\/MatchWidgets(?:\?.*)?$/.test(url)
-    ) {
-      if (Array.isArray(data?.bannerList)) {
-        removed = data.bannerList.length;
-        data.bannerList = [];
-      }
-    } else if (
-      /\/ResourceCGI\/ColumnWidget(?:\?.*)?$/.test(url)
-    ) {
-      const title = data?.jumpData?.param?.title || "";
-      const widgetUrl = data?.jumpData?.param?.url || "";
-
-      if (data && (data.img || title || widgetUrl)) {
-        obj.data = null;
-        removed = 1;
-      }
     }
 
     console.log(`TencentSportsAdBlock: removed ${removed} item(s).`);
