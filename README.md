@@ -4,10 +4,8 @@
 腾讯体育 iPhone / iPad App 的 Surge 去广告模块。主要用于去除开屏广告、首页信息流强插广告、社区文章底部广告、赛事页横幅/组件广告和体育会员弹窗等内容。需卸载重装软件哦！！！
 
 > [!IMPORTANT]
-> 本项目只在 **iPhone / iPad 端腾讯体育 App + Surge** 环境下测试。Android、macOS 客户端，以及 Quantumult X、Loon、Shadowrocket、Stash 等其他代理工具均未测试，也没有提供适配配置。
 
-> [!NOTE]
-> 首次启用模块或更新规则后，需要卸载重装腾讯体育已清除app本地缓存。并安装信任 Surge MITM 证书、开启 HTTPS 解密并开启屏蔽 QUIC
+> 首次启用模块，需要“卸载重装腾讯体育APP”！！！，确保已清除app本地缓存。并安装信任 Surge MITM 证书、开启 HTTPS 解密并开启屏蔽 QUIC
 
 ## 一、基础模块引用
 
