@@ -45,13 +45,13 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 ### v1.1.1 · 2026-07-02
 
-- 新增首页原生活动强制弹窗清理：由于只弹一次，抓包抓了很久
+- 新增首页原生活动强制弹窗清理：该类首页活动弹窗具有一次性展示特征，定位难度较高，本次实现统一清理。
 - Surge 与 Quantumult X 配置已同步更新。
 
 ### v1.1.0 · 2026-07-01
 
 - 新增首页会员推广清理：移除首页置顶的“新用户首开特惠 / 立即开通”运营推广位。
-- 新增通用全屏图片跳转弹窗处理：关闭通过 sports.qq.com/sapp/h5msg.htm 打开的游戏及运营推广弹窗，例如“仙逆战天道”等。
+- 新增通用全屏图片跳转弹窗处理：关闭游戏及运营推广弹窗，例如“仙逆战天道”等。
 - 优化脚本职责划分：
   - TencentSportsAdBlock.js 仅处理首页信息流、社区文章、赛事页和首页会员推广等常规广告；
   - TencentSportsFloatBlock.js 仅处理比赛页横幅、首页悬浮入口和独立全屏运营弹窗。
