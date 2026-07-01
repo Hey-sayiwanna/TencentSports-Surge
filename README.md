@@ -43,6 +43,11 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 ## 三、更新日志
 
+### v1.1.1 · 2026-07-02
+
+- 新增首页原生活动强制弹窗清理：由于只弹一次，抓包抓了很久
+- Surge 与 Quantumult X 配置已同步更新。
+
 ### v1.1.0 · 2026-07-01
 
 - 新增首页会员推广清理：移除首页置顶的“新用户首开特惠 / 立即开通”运营推广位。
