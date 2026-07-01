@@ -62,6 +62,14 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
   - TencentSportsFloatBlock.js：处理比赛页横幅和首页悬浮运营组件。
 - 提供统一的 TencentSportsAdBlock.sgmodule 作为 Surge 安装入口，降低外部脚本数量，便于后续更新和排查规则。
 
+Surge 更新方式
+
+本项目脚本与模块文件会持续更新；发现广告重新出现、模块新增功能或规则修复后，按以下方式更新：
+
+1. 打开 Surge，进入 模块 页面。
+2. 找到“腾讯体育去广告”模块。
+3. 点击模块右侧的“立即更新”按钮，即可完成更新。
+   
 ## 四、适用范围
 
 | 软件 | 前置模块 | 本模块 |
