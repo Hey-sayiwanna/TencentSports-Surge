@@ -75,6 +75,19 @@ if (
         body.data = null;
         removed = 1;
       }
+    } else if (
+      /^https:\/\/app\.sports\.qq\.com\/user\/homePageV2(?:\?.*)?$/.test(
+        url
+      )
+    ) {
+      /*
+       * 首页原生活动强制弹窗：
+       * 温网、世界杯及后续赛事专题推广均由 forceNotice 下发。
+       */
+      if (Array.isArray(data?.forceNotice) && data.forceNotice.length > 0) {
+        removed = data.forceNotice.length;
+        data.forceNotice = [];
+      }
     }
 
     console.log(`TencentSportsFloatBlock: removed ${removed} item(s).`);
