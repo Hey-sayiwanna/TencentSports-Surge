@@ -64,11 +64,11 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 ## 四、适用范围
 
-| 软件 | 两个前置模块 | 本项目模块 |
+| 软件 | 前置模块 | 本模块 |
 | --- | --- | --- |
 | surge | ✅ | ✅ |
-| 圈x | ❎ | 测试 |
-| loon | ❎ | ❎ |
+| 圈x | ❌ | 测试 |
+| loon | ❌ | ❌ |
 
 
 > [!TIP]
