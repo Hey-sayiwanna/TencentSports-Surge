@@ -33,6 +33,26 @@ function isFeedAd(item) {
   );
 }
 
+function isHomeVipPromotion(item) {
+  const vipPromotion = item?.info?.vipPromotion;
+
+  const ptag =
+    vipPromotion?.adReport?.ptag ||
+    vipPromotion?.taskReport?.ptag ||
+    vipPromotion?.buttonJumpData?.param?.url ||
+    vipPromotion?.jumpData?.param?.url ||
+    "";
+
+  return (
+    item?.id === "type1149" ||
+    /ad\.sports\.homepage\.banner/i.test(ptag) ||
+    (
+      vipPromotion?.title === "新用户首开特惠" &&
+      vipPromotion?.button === "立即开通"
+    )
+  );
+}
+
 function removeVipPopup(html) {
   const marker = '"moduleType":"module_popup_page"';
   const markerIndex = html.indexOf(marker);
@@ -165,6 +185,22 @@ try {
 
       if (data && Object.prototype.hasOwnProperty.call(data, "adList")) {
         data.adList = "";
+      }
+
+      /*
+       * 首页置顶会员推广：
+       * type1149 / 新用户首开特惠 / 立即开通
+       *
+       * 保留 hot_my_schedule、type1142 等正常赛事和快讯模块。
+       */
+      if (Array.isArray(data?.topItem)) {
+        const beforeCount = data.topItem.length;
+
+        data.topItem = data.topItem.filter(
+          (item) => !isHomeVipPromotion(item)
+        );
+
+        removed += beforeCount - data.topItem.length;
       }
 
       if (Array.isArray(data?.stats)) {
