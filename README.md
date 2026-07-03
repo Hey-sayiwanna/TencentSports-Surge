@@ -43,6 +43,10 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 ## 三、更新日志
 
+### v1.1.2 · 2026-07-03
+
+- 新增首页“做任务免费看比赛 / 看广告得会员”金币任务弹层清理。
+- Surge 与 Quantumult X 配置已同步更新。
 ### v1.1.1 · 2026-07-02
 
 - 新增首页原生活动强制弹窗清理：该类首页活动弹窗具有一次性展示特征，定位难度较高，本次实现统一清理。
