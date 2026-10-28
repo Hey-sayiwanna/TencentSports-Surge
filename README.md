@@ -19,11 +19,7 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/AdPlatf
 ```
 
 > [!WARNING]
-> 请使用上面的兼容版，并**关闭原版「广告平台拦截器」**。原版中的 `DOMAIN-SUFFIX,l.qq.com,REJECT,pre-matching` 会在 DNS 阶段拦截视频广告请求 `lives.l.qq.com`，腾讯体育播放器会因此固定等待约 8 秒广告超时后才开始播放（回放、直播都受影响）。`pre-matching` 规则优先级最高，无法用其他规则覆盖，所以兼容版只删除了这一行，其余规则与原版一致；`l.qq.com` 的广告请求改由本模块本地返回空响应处理，广告不会恢复。
->
-> 如果还装了其他含有 `l.qq.com` 拦截规则的模块（如「腾讯视频去广告」），同样会导致起播卡顿。
->
-> 原版地址（仅供参考）：`https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Beta/%E5%B9%BF%E5%91%8A%E5%B9%B3%E5%8F%B0%E6%8B%A6%E6%88%AA%E5%99%A8.beta.sgmodule`
+> 请使用上面的兼容版，并**关闭原版「广告平台拦截器」**。兼容版只删除了有关腾讯体育播放的一行，其余规则与原版一致；
 
 HTTPDNS拦截器.beta.sgmodule：
 
@@ -52,9 +48,8 @@ https://raw.githubusercontent.com/Hey-sayiwanna/TencentSports-Surge/main/Tencent
 
 ### v1.3.0 · 2026-10-28
 
-- 修复视频起播慢：回放 / 直播点击后固定卡约 8 秒才出画。原因是视频广告请求 `lives.l.qq.com` 被原版广告平台拦截器在 DNS 阶段拦截，播放器需等待广告超时。
-- 本模块新增 `*.l.qq.com` 本地空响应（Map Local），广告 SDK 立即得到“无广告”结果，去广告效果不变。
-- 新增 `AdPlatformBlocker_TencentSports.sgmodule`（广告平台拦截器腾讯体育兼容版），替代原版前置模块。
+- 修复视频起播慢：回放 / 直播点击后固定卡约 8 秒才出画。原因是视频广告请求被原版广告平台拦截器在 DNS 阶段拦截，播放器需等待广告超时。
+- 新增（广告平台拦截器腾讯体育兼容版），替代原版前置模块。
 - 升级方法：在 Surge 模块页更新本模块，安装兼容版并关闭原版广告平台拦截器，然后强制退出腾讯体育重新打开。
 
 ### v1.2.0 · 2026-07-04
